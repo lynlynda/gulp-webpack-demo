@@ -6,6 +6,8 @@ const indexController = {
       ctx.body = await ctx.render('index', {
         title: '学习系统'
       });
+
+      // ctx.redirect('../index.html');
     }
 
   },

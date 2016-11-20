@@ -32,8 +32,8 @@ module.exports = {
     }]
   },
   babel: {
-    presets: ['es2015', 'stage-0'],
-    plugins: ['transform-runtime']
+    presets: ['es2015', 'stage-3'],
+    plugins: ['babel-plugin-transform-runtime']
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({ //提取公共文件单独编译
@@ -44,9 +44,12 @@ module.exports = {
       filename: 'public/scripts/[name].[chunkhash:5].bundle.js'
     }),
     new ExtractTextPlugin('./public/styles/[name].[chunkhash:5].css'), //单独编译css文件并输出
+
+    // new HtmlWebpackPlugin(),
     new HtmlWebpackPlugin({ //生成html文件，将编译完的js插入其中
-      fileneme: '/views/index.html',
+      filename: './views/index.html',
       template: './views/index.swig',
+      //chunks: ['qqq'],
       minify: {
         removeCommets: true,
         collapseWhitespace: true
@@ -55,7 +58,7 @@ module.exports = {
 
   ],
   resolve: {
-    extensions: ['', '.js', '.es', 'less']
+    extensions: ['', '.js', '.es', 'less'],
   }
 
 

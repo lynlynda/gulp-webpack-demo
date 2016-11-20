@@ -16,15 +16,15 @@ gulp.task('clean', function() {
     'build/**/*'
   ])
 });
-gulp.task('webpack', function() {
+gulp.task('webpack', ['build'], function() {
   webpack(webpackConfig, function() {
     console.log('gulp webpack结束')
   })
 })
 
-var watcher = gulp.watch('**/*.es', ['default']); //实时监控，有改动就重新启动default命令
+var watcher = gulp.watch('**/*.*', ['default']); //实时监控，有改动就重新启动default命令
 
-gulp.task('build', function() {
+gulp.task('build', ['clean'], function() {
   return gulp.src('src/**/*.es')
     .pipe(babel({
       presets: ["es2015", "stage-3"],
@@ -36,6 +36,6 @@ gulp.task('build', function() {
 
 });
 
-gulp.task('default', ['clean', 'build', 'webpack'], function() {
+gulp.task('default', ['build', 'webpack'], function() {
   console.log('编译结束')
 });

@@ -69,9 +69,7 @@ var thumb = function (_praiseButton) {
 //输出thumb模块
 
 
-exports.default = {
-  thumb: thumb
-};
+exports.default = thumb;
 //声明变量 构造类 执行点击动作
 // let f = new thumb(0, $('#thumb'));
 // f.clickAction();

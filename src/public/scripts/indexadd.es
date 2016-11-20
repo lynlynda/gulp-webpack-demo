@@ -6,4 +6,6 @@ const add = function(num) {
 window.test = {
   add: add
 }
-export default add;
+export default 
+  add
+;
