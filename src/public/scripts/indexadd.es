@@ -3,9 +3,9 @@
 const add = function(num) {
   return num + 1;
 };
-window.test = {
+const test = {
   add: add
 }
 export default 
-  add
+  test
 ;

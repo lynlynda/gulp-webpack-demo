@@ -5,7 +5,7 @@ var xtag = require('./x-tag-core');
 // var thumb = require('./index');
 //console.log(thumb);
 import thumb from './index';
-import add from './indexadd';
+import indexadd from './indexadd';
 const thumbapp = new thumb();
 const data = {
   num: 0
@@ -32,7 +32,7 @@ xtag.register('x-foo', {
           //如果点击数量小于10 直接去掉滤镜
          $('#thumb').css('-webkit-filter', 'grayscale(0)');
           $('#animation').addClass('num');
-          data.num =  add(data.num);
+          data.num =  indexadd.add(data.num);
           setTimeout(function() {
             $('#animation').removeClass('num');
           }, 1000);
@@ -42,7 +42,7 @@ xtag.register('x-foo', {
           data.num = 0;
         }
         thumbapp.sendAction(data.num)
-        console.log(data.num);
+        // console.log(data.num);
       }
     }
   }

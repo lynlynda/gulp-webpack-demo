@@ -1,7 +1,6 @@
 
 import $ from 'jquery';
 import axios from 'axios';
-import add from './indexadd';
 //声明父类
 class praiseButton {
   constructor(num, element) {
@@ -11,6 +10,7 @@ class praiseButton {
     this.element = element;
   }
   sendAction(num) {
+    console.log(num+'======')
     
        axios.get('/getdata?num=' + num)
         .then(function(response) {
